@@ -14,34 +14,34 @@
     "infocon": "green",
     "hoy": {
       "fecha": "2026-11-15",
-      "ataques": 6963361,
-      "origenes": 112172,
-      "objetivos": 494
+      "ataques": 10829426,
+      "origenes": 146752,
+      "objetivos": 516
     },
     "puertos": [
       {
         "puerto": 23,
         "nombre": "Telnet",
-        "registros": 987532,
-        "origenes": 7201
+        "registros": 2091757,
+        "origenes": 12401
       },
       {
         "puerto": 22,
         "nombre": "SSH",
-        "registros": 255693,
-        "origenes": 7307
+        "registros": 557415,
+        "origenes": 12192
       },
       {
         "puerto": 443,
         "nombre": "HTTPS",
-        "registros": 120092,
-        "origenes": 7469
+        "registros": 270340,
+        "origenes": 12510
       },
       {
         "puerto": 16767,
         "nombre": "—",
-        "registros": 92507,
-        "origenes": 3607
+        "registros": 203146,
+        "origenes": 5417
       }
     ],
     "fuente": "SANS Internet Storm Center"
@@ -49,7 +49,7 @@
   "ciberObsoleto": false,
   "carburantes": {
     "municipio": "Alcalá de Henares",
-    "generado": "15/11/2026 15:00",
+    "generado": "15/11/2026 21:00",
     "total": 32,
     "goa": {
       "min": 1.629,
@@ -62,7 +62,7 @@
     "g95": {
       "min": 1.299,
       "media": 1.563,
-      "max": 1.709,
+      "max": 1.699,
       "rotulo": "ALCAMPO",
       "direccion": "C.C. LA DEHESA, AUTOVIA MADRID-BARCELONA km 34,0",
       "estaciones": 32
@@ -78,5 +78,5 @@
     "fuente": "Geoportal de Gasolineras (MITECO)"
   },
   "carburantesObsoleto": false,
-  "actualizado": "2026-11-15T14:58:06.030Z"
+  "actualizado": "2026-11-15T20:18:08.005Z"
 }
