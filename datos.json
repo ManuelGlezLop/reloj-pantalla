@@ -13,12 +13,37 @@
   "ciber": {
     "infocon": "green",
     "hoy": {
-      "fecha": "2026-11-15",
-      "ataques": 13446128,
-      "origenes": 165830,
-      "objetivos": 537
+      "fecha": "2026-11-16",
+      "ataques": 2091800,
+      "origenes": 55964,
+      "objetivos": 356
     },
-    "puertos": [],
+    "puertos": [
+      {
+        "puerto": 23,
+        "nombre": "Telnet",
+        "registros": 476988,
+        "origenes": 4544
+      },
+      {
+        "puerto": 22,
+        "nombre": "SSH",
+        "registros": 131410,
+        "origenes": 4593
+      },
+      {
+        "puerto": 443,
+        "nombre": "HTTPS",
+        "registros": 57609,
+        "origenes": 4667
+      },
+      {
+        "puerto": 16767,
+        "nombre": "—",
+        "registros": 53441,
+        "origenes": 2758
+      }
+    ],
     "fuente": "SANS Internet Storm Center"
   },
   "ciberObsoleto": false,
@@ -52,6 +77,6 @@
     },
     "fuente": "Geoportal de Gasolineras (MITECO)"
   },
-  "carburantesObsoleto": false,
-  "actualizado": "2026-11-16T00:02:44.064Z"
+  "carburantesObsoleto": true,
+  "actualizado": "2026-11-16T06:47:05.348Z"
 }
