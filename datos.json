@@ -14,42 +14,17 @@
     "infocon": "green",
     "hoy": {
       "fecha": "2026-11-15",
-      "ataques": 10829426,
-      "origenes": 146752,
-      "objetivos": 516
+      "ataques": 13446128,
+      "origenes": 165830,
+      "objetivos": 537
     },
-    "puertos": [
-      {
-        "puerto": 23,
-        "nombre": "Telnet",
-        "registros": 2091757,
-        "origenes": 12401
-      },
-      {
-        "puerto": 22,
-        "nombre": "SSH",
-        "registros": 557415,
-        "origenes": 12192
-      },
-      {
-        "puerto": 443,
-        "nombre": "HTTPS",
-        "registros": 270340,
-        "origenes": 12510
-      },
-      {
-        "puerto": 16767,
-        "nombre": "—",
-        "registros": 203146,
-        "origenes": 5417
-      }
-    ],
+    "puertos": [],
     "fuente": "SANS Internet Storm Center"
   },
   "ciberObsoleto": false,
   "carburantes": {
     "municipio": "Alcalá de Henares",
-    "generado": "15/11/2026 21:00",
+    "generado": "16/11/2026 01:00",
     "total": 32,
     "goa": {
       "min": 1.629,
@@ -78,5 +53,5 @@
     "fuente": "Geoportal de Gasolineras (MITECO)"
   },
   "carburantesObsoleto": false,
-  "actualizado": "2026-11-15T20:18:08.005Z"
+  "actualizado": "2026-11-16T00:02:44.064Z"
 }
