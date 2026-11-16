@@ -1,12 +1,12 @@
 {
   "bayer": {
-    "precio": 56.68,
+    "precio": 57.06,
     "moneda": "EUR",
-    "variacion": -0.04,
-    "variacionPct": -0.07,
-    "apertura": 56.52,
-    "momento": "2026-11-13T19:38:19Z",
-    "estado": "Retail Early/Late",
+    "variacion": 0.54,
+    "variacionPct": 0.96,
+    "apertura": 56.94,
+    "momento": "2026-11-16T16:29:43Z",
+    "estado": "Continuous Trading",
     "fuente": "Xetra"
   },
   "bayerObsoleto": false,
@@ -46,23 +46,23 @@
     ],
     "fuente": "SANS Internet Storm Center"
   },
-  "ciberObsoleto": false,
+  "ciberObsoleto": true,
   "carburantes": {
     "municipio": "Alcalá de Henares",
-    "generado": "16/11/2026 01:00",
+    "generado": "16/11/2026 17:00",
     "total": 32,
     "goa": {
-      "min": 1.629,
-      "media": 1.79,
+      "min": 1.619,
+      "media": 1.783,
       "max": 1.969,
-      "rotulo": "ALCAMPO",
-      "direccion": "C.C. LA DEHESA, AUTOVIA MADRID-BARCELONA km 34,0",
+      "rotulo": "BALLENOIL",
+      "direccion": "CALLE VARSOVIA, 2",
       "estaciones": 32
     },
     "g95": {
       "min": 1.299,
-      "media": 1.563,
-      "max": 1.699,
+      "media": 1.556,
+      "max": 1.709,
       "rotulo": "ALCAMPO",
       "direccion": "C.C. LA DEHESA, AUTOVIA MADRID-BARCELONA km 34,0",
       "estaciones": 32
@@ -77,6 +77,6 @@
     },
     "fuente": "Geoportal de Gasolineras (MITECO)"
   },
-  "carburantesObsoleto": true,
-  "actualizado": "2026-11-16T06:47:05.348Z"
+  "carburantesObsoleto": false,
+  "actualizado": "2026-11-16T16:48:20.789Z"
 }
