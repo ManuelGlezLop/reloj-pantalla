@@ -1,11 +1,11 @@
 {
   "bayer": {
-    "precio": 56.02,
+    "precio": 55.96,
     "moneda": "EUR",
     "variacion": -0.86,
     "variacionPct": -1.51,
     "apertura": 56.5,
-    "momento": "2026-11-17T17:48:28Z",
+    "momento": "2026-11-17T20:00:48Z",
     "estado": "Retail Early/Late",
     "fuente": "Xetra"
   },
@@ -49,20 +49,20 @@
   "ciberObsoleto": true,
   "carburantes": {
     "municipio": "Alcalá de Henares",
-    "generado": "17/11/2026 19:00",
+    "generado": "18/11/2026 02:00",
     "total": 32,
     "goa": {
       "min": 1.619,
-      "media": 1.777,
-      "max": 1.969,
+      "media": 1.775,
+      "max": 1.959,
       "rotulo": "GASEXPRESS",
       "direccion": "CARRETERA DAGANZO KM. 3",
       "estaciones": 32
     },
     "g95": {
       "min": 1.299,
-      "media": 1.549,
-      "max": 1.719,
+      "media": 1.545,
+      "max": 1.699,
       "rotulo": "ALCAMPO",
       "direccion": "C.C. LA DEHESA, AUTOVIA MADRID-BARCELONA km 34,0",
       "estaciones": 32
@@ -78,5 +78,5 @@
     "fuente": "Geoportal de Gasolineras (MITECO)"
   },
   "carburantesObsoleto": false,
-  "actualizado": "2026-11-17T18:14:54.024Z"
+  "actualizado": "2026-11-18T01:01:55.573Z"
 }
