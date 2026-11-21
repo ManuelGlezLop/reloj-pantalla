@@ -49,11 +49,11 @@
   "ciberObsoleto": true,
   "carburantes": {
     "municipio": "Alcalá de Henares",
-    "generado": "21/11/2026 01:00",
+    "generado": "21/11/2026 17:00",
     "total": 32,
     "goa": {
       "min": 1.599,
-      "media": 1.742,
+      "media": 1.741,
       "max": 1.919,
       "rotulo": "GASEXPRESS",
       "direccion": "CARRETERA DAGANZO KM. 3",
@@ -61,7 +61,7 @@
     },
     "g95": {
       "min": 1.299,
-      "media": 1.512,
+      "media": 1.51,
       "max": 1.659,
       "rotulo": "ALCAMPO",
       "direccion": "C.C. LA DEHESA, AUTOVIA MADRID-BARCELONA km 34,0",
@@ -77,6 +77,6 @@
     },
     "fuente": "Geoportal de Gasolineras (MITECO)"
   },
-  "carburantesObsoleto": true,
-  "actualizado": "2026-11-21T08:03:26.855Z"
+  "carburantesObsoleto": false,
+  "actualizado": "2026-11-21T16:13:47.227Z"
 }
