@@ -77,6 +77,6 @@
     },
     "fuente": "Geoportal de Gasolineras (MITECO)"
   },
-  "carburantesObsoleto": false,
-  "actualizado": "2026-11-22T09:31:59.692Z"
+  "carburantesObsoleto": true,
+  "actualizado": "2026-11-22T17:23:24.452Z"
 }
