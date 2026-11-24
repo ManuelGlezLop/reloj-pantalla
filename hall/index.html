@@ -7,10 +7,13 @@
 <style>
 /* ===================================================================
    PANEL HALL  ·  1920 x 1080
-   Solo logo, fecha, hora y tiempo. Todo va en la barra superior para
-   dejarle a la playlist el maximo espacio posible.
-   El hueco lo cubre una region de Yodeck por encima:
-   x=164  y=160  1593x896  (16:9)
+   Misma estructura que Ingenieria (barra superior + columna derecha),
+   pero sin cotizacion de bolsa y sin ciberamenazas.
+   La columna se queda con dos tarjetas, asi que la prevision se estira
+   para ocupar el hueco que dejan: en la entrada se mira de lejos y
+   cuanto mas grande, mejor.
+   El hueco de la playlist lo cubre una region de Yodeck por encima:
+   x=40  y=196  1466x824  (16:9)
    =================================================================== */
 :root{
   --azul-oscuro:#10384F;
@@ -59,14 +62,6 @@ body::after{width:1100px;height:1100px;left:-430px;bottom:-560px;
 
 #relleno{flex:1 1 auto;}
 
-/* Tiempo */
-#tiempo{display:flex;align-items:center;gap:14px;}
-#tiempo .icono{width:62px;height:62px;flex:0 0 auto;}
-#tiempo .temp{font-size:40px;font-weight:700;line-height:1;
-  font-variant-numeric:tabular-nums;}
-#tiempo .desc{font-size:16px;font-weight:600;color:var(--suave);
-  margin-top:2px;white-space:nowrap;}
-
 /* Reloj */
 #reloj{display:flex;align-items:baseline;gap:7px;}
 #hora{font-size:62px;font-weight:700;line-height:1;letter-spacing:-.02em;
@@ -75,18 +70,64 @@ body::after{width:1100px;height:1100px;left:-430px;bottom:-560px;
   font-variant-numeric:tabular-nums;}
 
 /* ---------- Hueco de la playlist ---------- */
-#hueco{position:absolute;left:164px;top:160px;width:1593px;height:896px;
+#hueco{position:absolute;left:40px;top:196px;width:1466px;height:824px;
   border-radius:16px;background:rgba(255,255,255,.5);
   border:1px solid var(--borde);box-shadow:var(--sombra);z-index:1;
   display:flex;align-items:center;justify-content:center;}
 #hueco span{font-size:22px;color:var(--suave);letter-spacing:.2em;
   text-transform:uppercase;opacity:.5;}
 
+/* ---------- Columna derecha ---------- */
+#columna{position:absolute;left:1530px;top:160px;width:350px;height:896px;
+  display:flex;flex-direction:column;gap:18px;z-index:3;}
+.panel{padding:16px 18px;display:flex;flex-direction:column;}
+.titulo{
+  font-size:13px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--suave);margin-bottom:10px;display:flex;align-items:center;gap:8px;
+}
+.titulo::after{content:"";flex:1;height:1px;background:var(--borde);}
+
+/* Tiempo ahora */
+#ahora{flex:0 0 auto;}
+#ahora .fila{display:flex;align-items:center;gap:15px;}
+#ahora .icono{width:100px;height:100px;flex:0 0 auto;}
+#ahora .temp{font-size:66px;font-weight:700;line-height:1;
+  font-variant-numeric:tabular-nums;}
+#ahora .desc{font-size:20px;font-weight:600;color:var(--suave);
+  margin-top:4px;line-height:1.2;}
+/* 14px y gap 14 como en Ingenieria: la columna mide lo mismo (350px) y
+   a mas tamano "Viento NN km/h" se parte en dos lineas. */
+#ahora .detalle{
+  display:flex;gap:14px;margin-top:12px;padding-top:10px;
+  border-top:1px solid var(--borde);font-size:14px;color:var(--suave);
+  white-space:nowrap;
+}
+#ahora .detalle b{color:var(--texto);font-weight:700;}
+
+/* Prevision: se come todo el alto que sobra en la columna */
+#prevision{flex:1 1 auto;min-height:0;}
+#dias{flex:1 1 auto;min-height:0;display:flex;flex-direction:column;}
+.dia-fila{
+  flex:1 1 0;min-height:0;
+  display:flex;align-items:center;gap:12px;
+  border-bottom:1px solid var(--borde);
+  line-height:1.15;
+}
+.dia-fila:last-child{border-bottom:none;}
+.dia-fila .nombre{width:86px;font-size:44px;font-weight:700;
+  text-transform:uppercase;letter-spacing:.02em;}
+.dia-fila .ic{width:92px;height:92px;flex:0 0 auto;}
+.dia-fila .rango{margin-left:auto;font-size:46px;
+  font-variant-numeric:tabular-nums;white-space:nowrap;}
+.dia-fila .max{font-weight:700;}
+.dia-fila .min{color:var(--suave);font-weight:600;}
+
 .apagado{opacity:.4;}
 </style>
 </head>
 <body>
 
+  <!-- ===== Barra superior ===== -->
   <div id="barra" class="tarjeta">
     <div id="logo"><img src="../assets/bayer-logo.png" alt="Bayer"></div>
     <div class="sep"></div>
@@ -95,18 +136,42 @@ body::after{width:1100px;height:1100px;left:-430px;bottom:-560px;
       <div id="fecha">&nbsp;</div>
     </div>
     <div id="relleno"></div>
-    <div id="tiempo">
-      <div class="icono" id="ic-tiempo"></div>
-      <div>
-        <div class="temp" id="temp">--°</div>
-        <div class="desc" id="desc">Cargando…</div>
-      </div>
-    </div>
     <div class="sep"></div>
     <div id="reloj"><span id="hora">--:--</span><span id="segundos"></span></div>
   </div>
 
+  <!-- ===== Hueco para la playlist (lo tapa Yodeck) ===== -->
   <div id="hueco"><span>Playlist</span></div>
+
+  <!-- ===== Columna derecha ===== -->
+  <div id="columna">
+
+    <div class="panel tarjeta" id="ahora">
+      <div class="titulo">Alcalá de Henares</div>
+      <div class="fila">
+        <div class="icono" id="ic-ahora"></div>
+        <div>
+          <div class="temp" id="temp">--°</div>
+          <div class="desc" id="desc">Cargando…</div>
+        </div>
+      </div>
+      <div class="detalle">
+        <span>Sensación <b id="sens">--°</b></span>
+        <span>Humedad <b id="hum">--%</b></span>
+        <span>Viento <b id="viento">--</b></span>
+      </div>
+      <div class="detalle">
+        <span>Amanece <b id="amanece">--:--</b></span>
+        <span>Anochece <b id="anochece">--:--</b></span>
+      </div>
+    </div>
+
+    <div class="panel tarjeta" id="prevision">
+      <div class="titulo">Próximos días</div>
+      <div id="dias"></div>
+    </div>
+
+  </div>
 
 <script>
 (function(){
@@ -133,6 +198,7 @@ try{
 }catch(e){ usarZona=false; }
 
 var DIAS=["domingo","lunes","martes","miércoles","jueves","viernes","sábado"];
+var DIAS_C=["DOM","LUN","MAR","MIÉ","JUE","VIE","SÁB"];
 var MESES=["enero","febrero","marzo","abril","mayo","junio","julio","agosto",
            "septiembre","octubre","noviembre","diciembre"];
 
@@ -230,21 +296,44 @@ function texto(c){
 function cargarTiempo(){
   var u="https://api.open-meteo.com/v1/forecast"+
     "?latitude="+CONFIG.lat+"&longitude="+CONFIG.lon+
-    "&current=temperature_2m,weather_code"+
-    "&timezone=Europe%2FMadrid&forecast_days=1";
+    "&current=temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m"+
+    "&daily=weather_code,temperature_2m_max,temperature_2m_min,sunrise,sunset"+
+    "&timezone=Europe%2FMadrid&forecast_days=4";
 
   fetch(u).then(function(r){
     if(!r.ok) throw new Error("HTTP "+r.status);
     return r.json();
   }).then(function(j){
     var c=j.current;
-    document.getElementById("ic-tiempo").innerHTML=icono(c.weather_code);
+    document.getElementById("ic-ahora").innerHTML=icono(c.weather_code);
     document.getElementById("temp").textContent=Math.round(c.temperature_2m)+"°";
     document.getElementById("desc").textContent=texto(c.weather_code);
-    document.getElementById("tiempo").classList.remove("apagado");
+    document.getElementById("sens").textContent=Math.round(c.apparent_temperature)+"°";
+    document.getElementById("hum").textContent=c.relative_humidity_2m+"%";
+    document.getElementById("viento").textContent=Math.round(c.wind_speed_10m)+" km/h";
+
+    // Proximos 3 dias (se salta el indice 0, que es hoy)
+    var d=j.daily, html="";
+    for(var i=1;i<=3 && i<d.time.length;i++){
+      var f=new Date(d.time[i]+"T12:00:00");
+      html+='<div class="dia-fila">'+
+        '<span class="nombre">'+DIAS_C[f.getDay()]+'</span>'+
+        '<span class="ic">'+icono(d.weather_code[i])+'</span>'+
+        '<span class="rango"><span class="max">'+Math.round(d.temperature_2m_max[i])+'°</span>'+
+        ' <span class="min">'+Math.round(d.temperature_2m_min[i])+'°</span></span>'+
+      '</div>';
+    }
+    document.getElementById("dias").innerHTML=html;
+
+    document.getElementById("amanece").textContent=(d.sunrise[0]||"").slice(11,16)||"--:--";
+    document.getElementById("anochece").textContent=(d.sunset[0]||"").slice(11,16)||"--:--";
+
+    document.getElementById("ahora").classList.remove("apagado");
+    document.getElementById("prevision").classList.remove("apagado");
   }).catch(function(){
     // Se deja el ultimo dato bueno pero atenuado, en vez de borrarlo
-    document.getElementById("tiempo").classList.add("apagado");
+    document.getElementById("ahora").classList.add("apagado");
+    document.getElementById("prevision").classList.add("apagado");
   });
 }
 
