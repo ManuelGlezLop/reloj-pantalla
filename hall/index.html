@@ -80,7 +80,10 @@ body::after{width:1100px;height:1100px;left:-430px;bottom:-560px;
 /* ---------- Columna derecha ---------- */
 #columna{position:absolute;left:1530px;top:160px;width:350px;height:896px;
   display:flex;flex-direction:column;gap:18px;z-index:3;}
-.panel{padding:16px 18px;display:flex;flex-direction:column;}
+/* overflow:hidden es la red de seguridad: si algun dato sale mas ancho
+   de lo previsto, se recorta dentro de la tarjeta en vez de escaparse
+   por encima del fondo azul. */
+.panel{padding:16px 18px;display:flex;flex-direction:column;overflow:hidden;}
 .titulo{
   font-size:13px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
   color:var(--suave);margin-bottom:10px;display:flex;align-items:center;gap:8px;
@@ -114,10 +117,15 @@ body::after{width:1100px;height:1100px;left:-430px;bottom:-560px;
   line-height:1.15;
 }
 .dia-fila:last-child{border-bottom:none;}
-.dia-fila .nombre{width:86px;font-size:44px;font-weight:700;
+/* Anchos: la tarjeta deja 314px utiles (350 - 36 de padding).
+   nombre 72 + hueco 12 + icono 64 + hueco 12 + rango = 160 + rango.
+   El peor caso del rango es "12° -5°", unos 3,3em => 119px a 36px de
+   letra: 279 en total, con 35px de respiro. Mas grande que esto y la
+   temperatura se sale de la tarjeta por la derecha. */
+.dia-fila .nombre{width:72px;flex:0 0 auto;font-size:34px;font-weight:700;
   text-transform:uppercase;letter-spacing:.02em;}
-.dia-fila .ic{width:92px;height:92px;flex:0 0 auto;}
-.dia-fila .rango{margin-left:auto;font-size:46px;
+.dia-fila .ic{width:64px;height:64px;flex:0 0 auto;}
+.dia-fila .rango{margin-left:auto;flex:0 0 auto;font-size:36px;
   font-variant-numeric:tabular-nums;white-space:nowrap;}
 .dia-fila .max{font-weight:700;}
 .dia-fila .min{color:var(--suave);font-weight:600;}
