@@ -306,7 +306,8 @@ function cargarTiempo(){
     "?latitude="+CONFIG.lat+"&longitude="+CONFIG.lon+
     "&current=temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m"+
     "&daily=weather_code,temperature_2m_max,temperature_2m_min,sunrise,sunset"+
-    "&timezone=Europe%2FMadrid&forecast_days=4";
+    // 6 dias: el indice 0 es hoy y se descarta, quedan los 5 que se pintan
+    "&timezone=Europe%2FMadrid&forecast_days=6";
 
   fetch(u).then(function(r){
     if(!r.ok) throw new Error("HTTP "+r.status);
@@ -320,9 +321,9 @@ function cargarTiempo(){
     document.getElementById("hum").textContent=c.relative_humidity_2m+"%";
     document.getElementById("viento").textContent=Math.round(c.wind_speed_10m)+" km/h";
 
-    // Proximos 3 dias (se salta el indice 0, que es hoy)
+    // Proximos 5 dias (se salta el indice 0, que es hoy)
     var d=j.daily, html="";
-    for(var i=1;i<=3 && i<d.time.length;i++){
+    for(var i=1;i<=5 && i<d.time.length;i++){
       var f=new Date(d.time[i]+"T12:00:00");
       html+='<div class="dia-fila">'+
         '<span class="nombre">'+DIAS_C[f.getDay()]+'</span>'+
