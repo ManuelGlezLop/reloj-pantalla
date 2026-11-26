@@ -1,12 +1,12 @@
 {
   "bayer": {
-    "precio": 51.02,
+    "precio": 51.88,
     "moneda": "EUR",
-    "variacion": -1.36,
-    "variacionPct": -2.61,
-    "apertura": 52.52,
-    "momento": "2026-11-25T20:44:42Z",
-    "estado": "Retail Early/Late",
+    "variacion": 1.2,
+    "variacionPct": 2.37,
+    "apertura": 51.4,
+    "momento": "2026-11-26T08:36:59Z",
+    "estado": "Continuous Trading",
     "fuente": "Xetra"
   },
   "bayerObsoleto": false,
@@ -49,7 +49,7 @@
   "ciberObsoleto": true,
   "carburantes": {
     "municipio": "Alcalá de Henares",
-    "generado": "26/11/2026 01:00",
+    "generado": "26/11/2026 09:00",
     "total": 32,
     "goa": {
       "min": 1.599,
@@ -78,5 +78,5 @@
     "fuente": "Geoportal de Gasolineras (MITECO)"
   },
   "carburantesObsoleto": false,
-  "actualizado": "2026-11-26T00:30:00.763Z"
+  "actualizado": "2026-11-26T08:52:22.308Z"
 }
